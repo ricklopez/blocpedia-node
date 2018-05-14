@@ -1,0 +1,27 @@
+{
+  "development": {
+    "username": "blocit",
+    "password": "test1234",
+    "database": "blocipediadev",
+    "host": "0.0.0.0",
+    "dialect": "mysql",
+    "logging": true,
+    "operatorsAliases": false
+  },
+  "test": {
+    "username": "blocit",
+    "password": "test1234",
+    "database": "blocipediatest",
+    "host": "0.0.0.0",
+    "dialect": "mysql",
+    "logging": true,
+    "operatorsAliases": false
+  },
+  "production": {
+    "username": "root",
+    "password": true,
+    "database": "process.env.DATABASE_URL,",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}

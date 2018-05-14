@@ -1,0 +1,51 @@
+<% include ../partials/header.ejs %>
+<main class="container">
+  <h2>Edit Profile</h2>
+  <% include ../partials/messages.ejs %>
+  <div class="row">
+    <div class="col-md-8">
+      <form method="POST" action="/users/<%= user.id %>/update">
+        <div class="form-group">
+          <label>New Password:</label>
+          <input type="password" name="curr_password" placeholder="Enter password" class="form-control"/>
+        </div>
+        <div class="form-group">
+          <label>Confirm New Password:</label>
+          <input type="password" name="password" placeholder="Confirm new password" class="form-control"/>
+        </div>
+        <div class="form-group">
+          <label>Current password (we need your current password to confirm your changes):</label>
+          <input type="password" name="password_conf" placeholder="Current password" class="form-control"/>
+        </div><br/>
+        <input type="submit" value="Save" class="btn btn-primary"/>
+      </form>
+    </div>
+  </div>
+  <br/>
+  <div class="row">
+    <div class="col-md-8">
+    <% if (user.role == 0){%>
+      <h2>Upgrade to a premium Blocipedia account</h2>
+      <form method="POST" action="/users/<%= user.id %>/upgrade">
+        <script
+          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="pk_test_674IBw3mQXeoOdvyfxgRv2Eg"
+          data-amount="1500"
+          data-name="Stripe.com"
+          data-description="Example charge"
+          data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+          data-locale="auto"
+          data-zip-code="true">
+        </script>
+      </form>
+    <% } %>
+    <% if (user.role == 1){%>
+      <h2>Cancel your a premium Blocipedia subscription</h2>
+      <form method="POST" action="/users/<%= user.id %>/downgrade">
+        <input type="submit" value="Cancel" class="btn btn-primary"/>
+      </form>
+    <% } %>
+    </div>
+  </div>
+</main>
+<% include ../partials/footer.ejs %>

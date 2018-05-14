@@ -1,0 +1,17 @@
+<% include ../partials/header.ejs %>
+<main class="container">
+	<h1><%= wiki.title %></h1>
+	<% include ../partials/messages.ejs %>
+	<div class="row">
+	  <div class="col-md-8">
+	    <%- wiki.body %><br>
+	  </div>
+	  <div class="col-md-4">
+	    <a href="/wikis/<%= wiki.id %>/edit" class="btn btn-success">Edit</a>
+	    <form style="display:initial"  action="/wikis/<%= wiki.id %>/destroy" method="post">
+        	<button type="submit" class="btn btn-danger">Delete</button>
+      	</form>
+	  </div>
+	</div>
+</main>
+<% include ../partials/footer.ejs %>

@@ -1,0 +1,24 @@
+<% if (user.role == 1 || user.role == 2 ){%>
+  <h3>Add Collaborators</h3>
+
+  <form method="POST" action="/wikis/<%= wiki.id %>/collaborators">
+    <div class="form-group">
+      <input type="email" name="email" placeholder="Add collaborator email" class="form-control"/>
+      </br>
+      <input type="submit" value="Add Collaborator" class="btn btn-primary"/>
+    </div>
+  </form>
+
+  <h3>Manage Collaborators</h3>
+  <section id="collaborators-list">
+    <% if(wiki.collaborators) { %>
+      <% wiki.collaborators.forEach((collaborator) => { %>
+      <p><%= collaborator.User.email %></p>
+        <form style="display:initial" action="/wikis/<%= wiki.id %>/collaborators/<%= collaborator.id %>/destroy" method="post">
+          <button type="submit" class="btn btn btn-sm btn-outline-danger">Delete</button>
+        </form>
+      <% }) %>
+    <% } %>
+  </section>
+
+<% } %>

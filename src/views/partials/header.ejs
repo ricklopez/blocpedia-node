@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Blocipedia</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+  <script src="http://localhost:35729/livereload.js"></script>
+</head>
+<body>
+	<!-- Navigation -->
+  <div class="container">
+    <ul class="nav nav-tabs">
+      <li><a class="nav-link" href="/">Home</a></li>
+      <li><a class="nav-link" href="/wikis">Wikis</a></li>
+      <% if(typeof user == 'undefined') { %>
+        <li><a class="nav-link" href="/users/login">Login</a></li>
+        <li><a class="nav-link" href="/users/signup">Sign Up</a></li>
+      <% } else { %>
+        <li><a class="nav-link" href="/users/logout">Sign out</a></li>
+      <% } %>
+    </ul>
+  </div>

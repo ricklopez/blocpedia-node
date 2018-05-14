@@ -1,0 +1,25 @@
+<% include ../partials/header.ejs %>
+  <main class="container">
+    <% include ../partials/messages.ejs %>
+    <h1><%= `${user.email}'s profile` %></h1>
+    <hr>
+    <h2> Wikis </h2>
+    <div class="row">
+      <div class="col-md-8">
+        <% for(var i=0; i< wikis.length; i++) {%>
+          <div class="media">
+            <div class="media-body">
+              <h4 class="media-heading">
+                <p>
+                  <a href="wikis/<%= wikis[i].id %>"><%= wikis[i].title %></a>
+                </p>
+              </h4>
+            </div>
+          </div>
+        <% } %>
+      </div>
+      <div class="col-md-4">
+        <a href="/users/edit/<%= user.id %>" class="btn btn-primary">Edit Profile</a>
+      </div>
+    </div>
+<% include ../partials/footer.ejs %>

@@ -1,0 +1,19 @@
+<% include partials/header.ejs %>
+  	<main class="container">
+    <% include partials/messages.ejs %>
+	    	<% if(typeof user != 'undefined') { %>
+        	Signed in as: <strong><%= user.name %></strong> |
+        	<a href="/users/edit/<%= user.id %>">Edit Profile</a>
+        <% } %>
+        <!-- Jumbotron Header -->
+        <header class="jumbotron my-4">
+          	<h1 class="display-3">Welcome to Blocipedia</h1>
+          	<p class="lead">An application for users to create, collaborate, and share wikis.</p>
+		 	<%if (typeof user == "undefined"){%>
+		 		<a href="/users/signup" class="btn btn-primary">Sign up</a>
+	          	<a href="/users/login" class="btn btn-secondary">Login</a>
+			<% } %>
+        </header>
+	</main>
+
+<% include partials/footer.ejs %>
